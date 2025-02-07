@@ -5,6 +5,7 @@ services:
     volumes:
       - ./config:/config
     ports:
+      - 8080:80
       - 4000:4000
       - 4001:4001
       - 4002:4002
