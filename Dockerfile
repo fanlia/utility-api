@@ -3,12 +3,17 @@ RUN sed -i 's#https\?://dl-cdn.alpinelinux.org/alpine#https://mirrors.tuna.tsing
 RUN apk add --no-cache libreoffice font-noto-cjk openjdk21
 RUN apk add --no-cache nodejs npm python3 py3-pip
 
-ARG UID=1000
-ARG GID=1000
+RUN npm config set registry https://registry.npmmirror.com
+RUN pip config set global.index-url https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
+RUN npm i -g pm2
 
-RUN addgroup -g $GID -S nonroot && adduser -u $UID -S -G nonroot nonroot
+WORKDIR /utility-api
 
-WORKDIR /config
-RUN chown -R $UID:$GID /config
+COPY . .
 
-USER nonroot
+RUN sh install-dependencies.sh
+
+EXPOSE 4000
+EXPOSE 4001
+
+CMD ["pm2-runtime", "ecosystem.config.js"]
