@@ -10,6 +10,11 @@ do
   then
     echo `pwd`
     npm i
+  elif [[ $f = next* ]]
+  then
+    echo `pwd`
+    npm i
+    npm run build
   elif [[ $f = python* ]]
   then
     echo `pwd`
