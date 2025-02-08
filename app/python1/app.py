@@ -1,9 +1,8 @@
 import os
+import time
+import sys
+from waitress import serve
 from flask import Flask
-
-import logging
-log = logging.getLogger('werkzeug')
-log.disabled = True
 
 app = Flask(__name__)
 
@@ -14,4 +13,5 @@ def hello_world():
 port = os.getenv('PORT', 5000)
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=port)
+    print("server started at http://localhost:{} [{}][python:{}]".format(port, time.asctime(), sys.version))
+    serve(app, host='0.0.0.0', port=port)
