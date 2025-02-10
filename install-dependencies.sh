@@ -15,6 +15,11 @@ do
     echo `pwd`
     npm i
     npm run build
+  elif [[ $f = nuxt* ]]
+  then
+    echo `pwd`
+    npm i
+    npm run build
   elif [[ $f = python* ]]
   then
     echo `pwd`

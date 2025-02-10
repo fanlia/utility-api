@@ -18,6 +18,14 @@ const apps = dirs.map((dir, i) => {
       script : `./app/${dir}/node_modules/next/dist/bin/next`,
       args: `start ./app/${dir} -p ${4000 + i}`,
     }
+  } else if (dir.startsWith('nuxt')) {
+    return {
+      name   : dir,
+      script: `./app/${dir}/.output/server/index.mjs`,
+      env: {
+        PORT: 4000 + i,
+      },
+    }
   } else if (dir.startsWith('python')) {
     return {
       name   : dir,
