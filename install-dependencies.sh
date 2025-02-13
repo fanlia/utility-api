@@ -27,8 +27,7 @@ do
   then
     echo `pwd`
     echo python
-    python3 -m venv env
-    source env/bin/activate && pip install -r requirements.txt
+    poetry install
   fi
   cd ..
 done
