@@ -15,9 +15,8 @@ do
   then
     echo `pwd`
     echo next
-    echo -e '[install]\nregistry = "https://registry.npmmirror.com/"\n' > bunfig.toml
-    bun i
-    bun run build
+    npm i
+    npm run build
   elif [[ -f nuxt.config.ts ]]
   then
     echo `pwd`
