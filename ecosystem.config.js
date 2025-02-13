@@ -28,7 +28,7 @@ const apps = dirs.map((dir, i) => {
       },
     }
   } else if (fs.existsSync(`./app/${dir}/app.py`)) {
-    const interpreter = child_process.execSync('poetry --directory app/python env info --executable').toString().trim()
+    const interpreter = child_process.execSync(`poetry env info --executable --directory ./app/${dir}`).toString().trim()
     return {
       name   : dir,
       interpreter,
