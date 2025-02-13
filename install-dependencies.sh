@@ -10,19 +10,19 @@ do
   then
     echo `pwd`
     echo node
-    npm i
+    pnpm i
   elif [[ -f next.config.ts ]]
   then
     echo `pwd`
     echo next
-    npm i
-    npm run build
+    pnpm i
+    pnpm run build
   elif [[ -f nuxt.config.ts ]]
   then
     echo `pwd`
     echo nuxt
-    npm i
-    npm run build
+    pnpm i
+    pnpm run build
   elif [[ -f app.py ]]
   then
     echo `pwd`
