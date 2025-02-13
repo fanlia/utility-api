@@ -27,6 +27,7 @@ do
   then
     echo `pwd`
     echo python
+    poetry source add --priority=primary foo https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
     poetry install
   fi
   cd ..

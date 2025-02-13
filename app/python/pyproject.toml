@@ -12,6 +12,11 @@ flask = "^3.1.0"
 waitress = "^3.0.2"
 
 
+[[tool.poetry.source]]
+name = "foo"
+url = "https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple"
+priority = "primary"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
