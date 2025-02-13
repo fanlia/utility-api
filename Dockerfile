@@ -6,7 +6,7 @@ RUN apk add --no-cache bash nginx
 
 RUN npm config set registry https://registry.npmmirror.com
 RUN pip config set global.index-url https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
-RUN npm i -g pm2
+RUN npm i -g pm2 bun
 
 WORKDIR /utility-api
 

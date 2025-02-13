@@ -10,18 +10,19 @@ do
   then
     echo `pwd`
     echo node
-    npm i -f
+    npm i
   elif [[ -f next.config.ts ]]
   then
     echo `pwd`
     echo next
-    npm i -f
-    npm run build
+    echo -e '[install]\nregistry = "https://registry.npmmirror.com/"\n' > bunfig.toml
+    bun i
+    bun run build
   elif [[ -f nuxt.config.ts ]]
   then
     echo `pwd`
     echo nuxt
-    npm i -f
+    npm i
     npm run build
   elif [[ -f app.py ]]
   then
