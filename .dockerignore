@@ -1,6 +1,6 @@
 app/*/node_modules/
 app/*/__pycache__/
-app/*/env/
+app/*/.venv/
 
 app/*/.next/
 app/*/.nuxt/
