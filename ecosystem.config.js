@@ -1,6 +1,5 @@
 
 const fs = require('fs')
-const child_process = require('child_process')
 
 const dirs = fs.readdirSync('./app')
 
@@ -28,10 +27,9 @@ const apps = dirs.map((dir, i) => {
       },
     }
   } else if (fs.existsSync(`./app/${dir}/app.py`)) {
-    const interpreter = child_process.execSync(`poetry env info --executable --directory ./app/${dir}`).toString().trim()
     return {
       name   : dir,
-      interpreter,
+      interpreter: `./app/${dir}/.venv/bin/python3`,
       script : `./app/${dir}/app.py`,
       env: {
         PORT: 4000 + i,

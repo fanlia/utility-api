@@ -7,6 +7,7 @@ RUN apk add --no-cache bash nginx pnpm poetry
 RUN npm config set registry https://registry.npmmirror.com
 RUN pnpm config set registry https://registry.npmmirror.com
 RUN pip config set global.index-url https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
+RUN poetry config virtualenvs.in-project true
 RUN npm i -g pm2
 
 WORKDIR /utility-api
