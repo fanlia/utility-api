@@ -23,6 +23,12 @@ do
     echo nuxt
     pnpm i
     pnpm run build
+  elif [[ -f react-router.config.ts ]]
+  then
+    echo `pwd`
+    echo react-router
+    pnpm i
+    pnpm run build
   elif [[ -f app.py ]]
   then
     echo `pwd`

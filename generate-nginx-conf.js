@@ -1,17 +1,21 @@
-
 const fs = require('fs')
 
 const dirs = fs.readdirSync('./app')
 
-const upstream = dirs.map((dir, i) => `
+const upstream = dirs
+  .map(
+    (dir, i) => `
 upstream ${dir} {
   server 127.0.0.1:${4000 + i};
   keepalive 64;
 }
-`)
-.join('\n')
+`,
+  )
+  .join('\n')
 
-const location = dirs.map((dir, i) => `
+const location = dirs
+  .map(
+    (dir, i) => `
   location /${i > 0 ? dir : ''} {
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     proxy_set_header X-Real-IP $remote_addr;
@@ -25,8 +29,9 @@ const location = dirs.map((dir, i) => `
     proxy_redirect off;
     proxy_read_timeout 240s;
   }
-`)
-.join('\n')
+`,
+  )
+  .join('\n')
 
 const conf = `
 events {
